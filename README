@@ -7,6 +7,17 @@
 #
 ######################################################################
 
+*************
+Basic design:
+*************
+Free blocks of heap implemented as segregated free list:
+- 22 explicit free lists, where each list represents a different size 
+  class (each list only contains free blocks up to a certain size) 
+- Free blocks contain next and previous pointers that point to the 
+  next and previous free blocks on that explicit list
+- Each list begins with a special block, which points to first free block, 
+  and is null-terminated.
+
 ***********
 Main Files:
 ***********
